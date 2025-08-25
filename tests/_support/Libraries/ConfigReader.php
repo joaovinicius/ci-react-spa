@@ -2,7 +2,7 @@
 
 namespace Tests\Support\Libraries;
 
-use src\app\Config\App;
+use Config\App;
 
 /**
  * Class ConfigReader

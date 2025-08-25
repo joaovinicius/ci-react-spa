@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ci-vue-spa.iml" filepath="$PROJECT_DIR$/.idea/ci-vue-spa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ci-react-spa.iml" filepath="$PROJECT_DIR$/.idea/ci-react-spa.iml" />
     </modules>
   </component>
 </project>

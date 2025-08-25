@@ -84,7 +84,7 @@ class TenantController extends ResourceController
 {
   use ResponseTrait;
 
-  protected $tenantService;
+  protected TenantService $tenantService;
   protected $format = 'json';
 
   public function __construct()

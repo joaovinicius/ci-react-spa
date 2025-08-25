@@ -10,7 +10,7 @@
  */
 
 use CodeIgniter\Boot;
-use src\app\Config\Paths;
+use Config\Paths;
 
 /*
  *---------------------------------------------------------------
@@ -27,7 +27,7 @@ use src\app\Config\Paths;
  */
 
 // Load the paths config file
-require __DIR__ . '/app/Config/Paths.php';
+require __DIR__ . '/src/backend/Config/Paths.php';
 
 // Path to the front controller
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR . 'public_html' . DIRECTORY_SEPARATOR);

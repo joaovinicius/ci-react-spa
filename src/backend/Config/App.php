@@ -30,7 +30,7 @@ class App extends BaseConfig
      * @var list<string>
      */
     public array $allowedHostnames = [
-      'http://localhost:3000'
+      'localhost:3000'
     ];
 
     /**
