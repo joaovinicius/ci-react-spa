@@ -24,6 +24,11 @@ RUN apt-get update && apt-get install -y \
     && a2enmod rewrite \
     && a2enmod headers
 
+# Start Apache in the foreground
+# Instalar Xdebug
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
 # Configurar permissões corretas
 RUN chown -R www-data:www-data /var/www/html
 
