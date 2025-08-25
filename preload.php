@@ -10,7 +10,7 @@
  */
 
 use CodeIgniter\Boot;
-use Config\Paths;
+use src\app\Config\Paths;
 
 /*
  *---------------------------------------------------------------
@@ -30,7 +30,7 @@ use Config\Paths;
 require __DIR__ . '/app/Config/Paths.php';
 
 // Path to the front controller
-define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR);
+define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR . 'public_html' . DIRECTORY_SEPARATOR);
 
 class preload
 {

@@ -1,0 +1,48 @@
+<?php
+
+namespace Admin\Database\Migrations;
+
+use CodeIgniter\Database\Migration;
+
+class {{pascalCase name}} extends Migration
+{
+
+    public function up()
+    {
+        $this->forge->addColumn('{{snakeCase table}}', [
+            'paper_format_id' => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+                'unsigned'       => true,
+                'null'           => true,
+            ],
+            'name' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => false,
+            ],
+            'price' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'null' => false,
+                'default' => 0,
+            ],
+        ]);
+
+        $this->forge->addForeignKey('paper_format_id', 'paper_formats', 'id', 'SET NULL', 'SET NULL');
+        $this->forge->processIndexes('{{snakeCase table}}');
+    }
+
+    public function down()
+    {
+        $this->db->disableForeignKeyChecks();
+        $this->db->query('ALTER TABLE {{snakeCase table}} DROP FOREIGN KEY {{snakeCase table}}_paper_format_id_foreign');
+        $this->db->enableForeignKeyChecks();
+
+        $this->forge->dropColumn('{{snakeCase table}}', [
+            'paper_format_id',
+            'name',
+            'price'
+        ]);
+    }
+}

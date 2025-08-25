@@ -1,0 +1,38 @@
+networks:
+  lamp.network:
+    driver: bridge
+
+services:
+  php-apache:
+    build: './build/php'
+    restart: unless-stopped
+    container_name: ci-react-spa.php-apache
+    tty: true
+    depends_on:
+      - mysql
+    networks:
+      - lamp.network
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/html
+      - ./data/apache/logs:/var/log/apache2
+
+  mysql:
+    image: mysql:5
+    restart: unless-stopped
+    container_name: ci-react-spa.mysql
+    tty: true
+    ports:
+      - "3306:3306"
+    networks:
+      - lamp.network
+    volumes:
+      - "./build/mysql/mysql.cnf:/etc/mysql/conf.d/custom.cnf:ro"
+      - "./data/mysql/dbdata:/var/lib/mysql"
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-development}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-mysql}
+      MYSQL_USER: ${MYSQL_USER:-mysql}

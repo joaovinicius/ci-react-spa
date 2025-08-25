@@ -1,7 +1,7 @@
 <?php
 
 use CodeIgniter\Test\CIUnitTestCase;
-use Config\App;
+use src\app\Config\App;
 use Tests\Support\Libraries\ConfigReader;
 
 /**

@@ -1,0 +1,39 @@
+<?php
+
+namespace Admin\Models;
+
+use Admin\Entities\\{{pascalCase name}};
+use CodeIgniter\Model;
+
+class {{pascalCase name}}Model extends Model
+{
+  protected $table = '{{snakeCase table}}';
+
+  protected $primaryKey = 'id';
+  protected $returnType = {{pascalCase name}}::class;
+  protected $useSoftDeletes = true;
+  protected $useTimestamps = true;
+  protected $skipValidation = false;
+  protected $deletedField = 'deleted_at';
+
+  protected $allowedFields = [
+    'org_id',
+    'tenant_id',
+  ];
+
+  protected $validationRules = [
+    'org_id' => 'required|integer',
+    'tenant_id' => 'required|integer',
+  ];
+
+  protected $validationMessages = [
+    'org_id' => [
+      'required' => 'The org_id field is required.',
+      'integer' => 'The org_id field must be an integer.'
+    ],
+    'tenant_id' => [
+      'required' => 'The tenant_id field is required.',
+      'integer' => 'The tenant_id field must be an integer.'
+    ],
+  ];
+}

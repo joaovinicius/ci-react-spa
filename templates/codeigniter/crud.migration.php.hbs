@@ -1,0 +1,56 @@
+<?php
+
+namespace Admin\Database\Migrations;
+
+use CodeIgniter\Database\Migration;
+
+class Create{{pascalCase table}}Table extends Migration
+{
+  public function up()
+  {
+    $this->forge->addField([
+      'id' => [
+        'type'           => 'INT',
+        'constraint'     => 11,
+        'unsigned'       => true,
+        'auto_increment' => true,
+      ],
+      'org_id' => [
+        'type'           => 'INT',
+        'constraint'     => 11,
+        'unsigned'       => true,
+        'null'           => false,
+      ],
+      'tenant_id' => [
+        'type'           => 'INT',
+        'constraint'     => 11,
+        'unsigned'       => true,
+        'null'           => false,
+      ],
+      'created_at' => [
+        'type'    => 'DATETIME',
+        'null'    => false,
+        'default' => new \CodeIgniter\Database\RawSql('CURRENT_TIMESTAMP'),
+      ],
+      'updated_at' => [
+        'type'    => 'DATETIME',
+        'null'    => false,
+        'default' => new \CodeIgniter\Database\RawSql('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
+      ],
+      'deleted_at' => [
+        'type'    => 'DATETIME',
+        'null'    => true,
+        'default' => null,
+      ],
+    ]);
+    $this->forge->addKey('id', true);
+    $this->forge->addForeignKey('org_id', 'orgs', 'id', 'CASCADE', 'CASCADE');
+    $this->forge->addForeignKey('tenant_id', 'tenants', 'id', 'CASCADE', 'CASCADE');
+    $this->forge->createTable('{{snakeCase table}}');
+  }
+
+  public function down()
+  {
+    $this->forge->dropTable('{{snakeCase table}}');
+  }
+}

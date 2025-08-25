@@ -1,0 +1,26 @@
+<?php
+
+namespace Admin\Entities;
+
+use CodeIgniter\Entity\Entity;
+
+class {{pascalCase name}} extends Entity
+{
+  protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+  protected $casts = [
+    'id' => 'integer',
+    'org_id' => 'integer',
+    'tenant_id' => 'integer',
+  ];
+
+  public function toPublicArray(): array
+  {
+    return [
+      'id' => (int)$this->id,
+      'org_id' => (int)$this->org_id,
+      'tenant_id' => (int)$this->tenant_id,
+      'created_at' => $this->created_at,
+      'updated_at' => $this->updated_at,
+    ];
+  }
+}
