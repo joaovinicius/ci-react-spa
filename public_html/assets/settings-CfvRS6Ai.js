@@ -1,0 +1,1 @@
+import{j as e}from"./index-mY46qgd_.js";function s(){return e.jsxDEV("h1",{children:"Settings"},void 0,!1,{fileName:"/home/jv/Projects/ci-react-spa/src/frontend/views/settings.tsx",lineNumber:2,columnNumber:10},this)}export{s as Settings};

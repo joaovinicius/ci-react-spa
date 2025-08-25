@@ -1,0 +1,1 @@
+import{j as o}from"./index-mY46qgd_.js";import{L as r}from"./login-form-BRtcyWml.js";import"./label-Bh3tKdp0.js";function m(){return o.jsxDEV(r,{},void 0,!1,{fileName:"/home/jv/Projects/ci-react-spa/src/frontend/views/auth/login.tsx",lineNumber:4,columnNumber:10},this)}export{m as Login};
