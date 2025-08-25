@@ -5,7 +5,10 @@ import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig(({ command, mode }) => {
-  process.env = {...process.env, ...loadEnv(mode, process.cwd())};
+  const env = loadEnv(mode, path.resolve(process.cwd(), 'src'), '');
+
+  process.env = {...process.env, ...env};
+
   const base = command === "build" && process.env.NODE_ENV
     ? process.env.VITE_BASENAME
     : "/"

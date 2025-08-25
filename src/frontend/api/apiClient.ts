@@ -36,7 +36,7 @@ axiosInstance.interceptors.response.use(
     if (status === 401 && !isLoginPage) {
       console.error('Unauthorized: Redirecting to login...');
       localStorage.removeItem('accessToken');
-      window.location.href = BASE_URL + '/login';
+      window.location.href = BASE_URL + '/auth/login';
       return
     }
 
