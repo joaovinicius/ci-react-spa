@@ -1,0 +1,1 @@
+import{j as e}from"./index-CBzID-ur.js";function i(){return e.jsxDEV("h1",{children:"Profile"},void 0,!1,{fileName:"/home/jv/Projects/ci-react-spa/src/frontend/views/profile.tsx",lineNumber:2,columnNumber:10},this)}export{i as Profile};

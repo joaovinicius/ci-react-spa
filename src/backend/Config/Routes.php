@@ -33,7 +33,7 @@ $routes->group('api', ['filter' => 'cors:api'], static function (RouteCollection
     // Auth
     $routes->get('auth/me', [AuthController::class, 'me']);
     $routes->get('auth/logout', [AuthController::class, 'logout']);
-    $routes->get('auth/refresh-token', [AuthController::class, 'refreshToken']);
+    $routes->post('auth/refresh-token', [AuthController::class, 'refreshToken']);
 
     // Org CRUD routes
     $routes->get('orgs', [OrgController::class, 'index']);

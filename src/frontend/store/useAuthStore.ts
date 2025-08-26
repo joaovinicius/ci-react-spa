@@ -25,23 +25,23 @@ export const useAuthStore = create<AuthState>()((set) => ({
   refresh_token: localStorage.getItem("refresh_token") ?? '',
   token_type: localStorage.getItem("token_type") ?? '',
   expires_in: localStorage.getItem("expires_in") ? Number(localStorage.getItem("expires_in")) : 0,
-  setAccessToken: (access_token: string) =>  {
+  setAccessToken: (access_token: string = '') =>  {
     set(() => ({ access_token }))
     localStorage.setItem("access_token", access_token)
   },
-  setRefreshToken: (refresh_token: string) =>  {
+  setRefreshToken: (refresh_token: string = '') =>  {
     set(() => ({ refresh_token }))
     localStorage.setItem("refresh_token", refresh_token)
   },
-  setTokenType: (token_type: string) =>  {
+  setTokenType: (token_type: string = '') =>  {
     set(() => ({ token_type }))
     localStorage.setItem("token_type", token_type)
   },
-  setExpiresIn: (expires_in: number) =>  {
+  setExpiresIn: (expires_in: number = 0) =>  {
     set(() => ({ expires_in}))
     localStorage.setItem("expires_in", String(expires_in))
   },
-  setUser: (user: TUser) => set(() => ({ user })),
+  setUser: (user?: TUser) => set(() => ({ user })),
   logout: () => {
     set(() => ({
       user: undefined,

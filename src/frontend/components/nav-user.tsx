@@ -13,14 +13,18 @@ import {useAuthStore} from "@/store/useAuthStore.ts";
 import {useEffect} from "react";
 import {Link, useNavigate} from "react-router";
 import {USER_MENU} from "@/lib/navigation.ts";
+import {useTokenRefresh} from "@/hooks/use-token-refresh.ts";
 
 export function NavUser() {
   const { isMobile } = useSidebar()
   const navigate = useNavigate();
   const {data: currentUser} = useApiClient.useQuery('/auth/me')
-  const { user, setUser, logout } = useAuthStore()
+  const { user, setUser, logout, isLoggedIn } = useAuthStore()
+  const { startTokenRefresh, stopTokenRefresh } = useTokenRefresh();
+
 
   const handleLogout = () => {
+    stopTokenRefresh();
     logout()
     navigate('/auth/login')
   }
@@ -30,6 +34,18 @@ export function NavUser() {
       setUser(currentUser)
     }
   }, [currentUser, setUser])
+
+  useEffect(() => {
+    if (isLoggedIn()) {
+      startTokenRefresh();
+    } else {
+      stopTokenRefresh();
+    }
+
+    return () => {
+      stopTokenRefresh();
+    };
+  }, [isLoggedIn, startTokenRefresh, stopTokenRefresh]);
 
   if (!currentUser || !user) {
     return null

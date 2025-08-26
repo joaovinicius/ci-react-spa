@@ -1,0 +1,1 @@
+import{j as e}from"./index-CBzID-ur.js";import{L as r}from"./login-form-ShgXxMDx.js";import"./label-CIjJRXaR.js";function i(){return e.jsxDEV(r,{},void 0,!1,{fileName:"/home/jv/Projects/ci-react-spa/src/frontend/views/auth/reset-password.tsx",lineNumber:4,columnNumber:10},this)}export{i as ResetPassword};

@@ -2,12 +2,10 @@ import axios, {AxiosError} from 'axios';
 import {createApiClient} from '@/api/schemas.ts';
 import {ZodiosHooks} from "@zodios/react";
 
-const API_URL = import.meta.env.VITE_API || "http://localhost/api";
-const BASE_URL = import.meta.env.VITE_BASE_URL || "http://localhost";
+const API_URL = import.meta?.env?.VITE_API || "http://localhost/api";
+const BASE_URL = import.meta?.env?.VITE_BASE_URL || "http://localhost:3000";
 
-const axiosInstance = axios.create({
-  baseURL: API_URL,
-});
+const axiosInstance = axios.create({ baseURL: API_URL });
 
 axiosInstance.defaults.headers.common['Accept'] = 'application/json';
 

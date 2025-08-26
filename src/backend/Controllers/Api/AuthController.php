@@ -390,6 +390,7 @@ class AuthController extends ResourceController
    *     path="/auth/refresh-token",
    *     tags={"Auth"},
    *     summary="Refresh JWT tokens",
+   *     security={{"bearerAuth":{}}},
    *     description="Exchanges a valid refresh token for a new access token and a new refresh token.",
    *     operationId="refreshTokens",
    *     @OA\RequestBody(
